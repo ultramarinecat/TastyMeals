@@ -5,7 +5,7 @@
 
 import SwiftUI
 
-/// An app that displays dessert recipies including the recipe names, photos, ingredients with measurements, and cooking instructions.
+/// An app that displays dessert recipes including the recipe names, photos, ingredients with measurements, and cooking instructions.
 @main
 struct TastyMealsApp: App {
     private var isTest: Bool {
