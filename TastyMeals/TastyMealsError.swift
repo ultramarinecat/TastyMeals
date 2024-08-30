@@ -31,13 +31,15 @@ extension TastyMealsError: LocalizedError {
         case .unexpected:
             return NSLocalizedString("Unexpected error", comment: "Unexpected error")
         case .invalidURL(let string):
-            return NSLocalizedString("Invalid url: \(string)", comment: "Invalid url")
+            return String(format: NSLocalizedString("Invalid url: %@", comment: "Invalid url"), string)
         case .unsuccessful(let statusCode):
-            return NSLocalizedString("Unsuccessful request with status code: \(statusCode)", comment: "Unsuccessful request")
+            // swiftlint:disable:next line_length
+            return String(format: NSLocalizedString("Unsuccessful request with status code: %d", comment: "Unsuccessful request"), statusCode)
         case .noMeals:
             return NSLocalizedString("No meals returned", comment: "No meals returned")
         case .noMealDetails(let mealID):
-            return NSLocalizedString("No meal details returned for meal id: \(mealID)", comment: "No meal details returned")
+            // swiftlint:disable:next line_length
+            return String(format: NSLocalizedString("No meal details returned for meal id: %@", comment: "No meal details returned"), mealID)
         }
     }
 }
