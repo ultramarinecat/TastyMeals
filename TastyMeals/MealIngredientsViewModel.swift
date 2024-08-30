@@ -33,13 +33,11 @@ final class MealIngredientsViewModel {
             meal.measurement19, meal.measurement20
         ]
 
-        var ingredientsList: [MealIngredient] = []
-        for (ingredient, measurement) in zip(ingredients, measurements) {
-            if let ingredient, let measurement, !ingredient.isEmpty, !measurement.isEmpty {
-                ingredientsList.append(MealIngredient(name: ingredient, measurement: measurement))
+        return zip(ingredients, measurements).compactMap { ingredient, measurement in
+            guard let ingredient, let measurement, !ingredient.isEmpty, !measurement.isEmpty else {
+                return nil
             }
+            return MealIngredient(name: ingredient, measurement: measurement)
         }
-
-        return ingredientsList
     }
 }
