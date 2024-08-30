@@ -9,11 +9,11 @@ import OSLog
 // swiftlint:disable:next force_unwrapping
 private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: String(describing: MealDetailRepository.self))
 
-/// Meal detail repository that fetching meal details.
+/// Meal detail repository that fetches meal details.
 struct MealDetailRepository: MealDetailRepositoryProtocol {
     private let dataRepository: MealDataRepository
 
-    /// Creates a `MealListRepository` with the given `datarRepository` to use for fetching meal data.
+    /// Creates a `MealListRepository` with the given `dataRepository` to use for fetching meal data.
     /// - Parameter dataRepository: Repository used to fetch meal data, `MealDBDataRepository` by default.
     init(dataRepository: MealDataRepository = MealDBDataRepository()) {
         self.dataRepository = dataRepository

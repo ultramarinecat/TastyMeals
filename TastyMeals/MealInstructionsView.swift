@@ -7,7 +7,7 @@ import SwiftUI
 
 /// Meal instructions view.
 struct MealInstructionsView: View {
-    private static let headingBottonPadding = 5.0
+    private static let headingButtonPadding = 5.0
 
     /// The meal instructions to display.
     var instructions: String
@@ -20,7 +20,7 @@ struct MealInstructionsView: View {
                 .accessibilityHeading(.h2)
                 .font(.title)
                 .fontWeight(.medium)
-                .padding(.bottom, MealInstructionsView.headingBottonPadding)
+                .padding(.bottom, MealInstructionsView.headingButtonPadding)
 
             Text(instructions)
         }
