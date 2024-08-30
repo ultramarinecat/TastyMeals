@@ -27,6 +27,5 @@ struct MealListNavigationView: View {
             MealListDetailPlaceholderView()
         }
         .navigationSplitViewStyle(.balanced)
-        .accentColor(Color.accentColor)
     }
 }
