@@ -1,0 +1,28 @@
+{
+  "configurations" : [
+    {
+      "id" : "B5CE9B5D-735C-4EB4-99B7-5723023D4E78",
+      "name" : "Test Scheme Action",
+      "options" : {
+
+      }
+    }
+  ],
+  "defaultOptions" : {
+    "targetForVariableExpansion" : {
+      "containerPath" : "container:TastyMeals.xcodeproj",
+      "identifier" : "DA9FB4EA2C753D61005DF2FF",
+      "name" : "TastyMeals"
+    }
+  },
+  "testTargets" : [
+    {
+      "target" : {
+        "containerPath" : "container:TastyMeals.xcodeproj",
+        "identifier" : "DA9FB4FA2C753D62005DF2FF",
+        "name" : "TastyMealsTests"
+      }
+    }
+  ],
+  "version" : 1
+}

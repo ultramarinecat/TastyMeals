@@ -1,0 +1,12 @@
+xcuserdata/
+build/
+DerivedData
+
+*.hmap
+*.ipa
+
+Packages/
+.swiftpm
+.build/
+.swift-format
+.DS_Store
