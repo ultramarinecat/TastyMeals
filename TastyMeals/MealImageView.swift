@@ -39,7 +39,7 @@ struct MealImageView: View {
         }
         .frame(
             width: isPreview ? MealImageView.imagePreviewWidth : MealImageView.imageWidth,
-            height: isPreview ? MealImageView.imagePreviewWidth : MealImageView.imageWidth
+            height: isPreview ? MealImageView.imagePreviewHeight : MealImageView.imageHeight
         )
         .cornerRadius(MealImageView.imageCornerRadius)
     }
