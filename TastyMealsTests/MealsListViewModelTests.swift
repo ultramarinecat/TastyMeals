@@ -9,15 +9,6 @@ import XCTest
 
 /// Meal list view model tests.
 final class MealsListViewModelTests: XCTestCase {
-    private func makeRepository(isSuccessful: Bool = true, isOrderedByName: Bool = true) -> MealListRepositoryProtocol {
-        let stubDataRepository = MealDataStubRepository(isSuccessful: isSuccessful, isOrderedByName: isOrderedByName)
-        return MealListRepository(dataRepository: stubDataRepository)
-    }
-
-    private func isSorted(meals: [Meal]) -> Bool {
-        zip(meals, meals.dropFirst()).allSatisfy { $0.name <= $1.name }
-    }
-
     @MainActor
     func test_when_viewWillAppear_should_fetchAndSetMeals() async throws {
         let repository = makeRepository()
@@ -69,5 +60,14 @@ final class MealsListViewModelTests: XCTestCase {
 
         await sut.handleViewWillAppear()
         XCTAssertTrue(isSorted(meals: try XCTUnwrap(sut.meals)))
+    }
+
+    private func makeRepository(isSuccessful: Bool = true, isOrderedByName: Bool = true) -> MealListRepositoryProtocol {
+        let stubDataRepository = MealDataStubRepository(isSuccessful: isSuccessful, isOrderedByName: isOrderedByName)
+        return MealListRepository(dataRepository: stubDataRepository)
+    }
+
+    private func isSorted(meals: [Meal]) -> Bool {
+        zip(meals, meals.dropFirst()).allSatisfy { $0.name <= $1.name }
     }
 }

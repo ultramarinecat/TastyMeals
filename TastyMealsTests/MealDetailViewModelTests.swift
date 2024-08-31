@@ -15,11 +15,6 @@ final class MealDetailViewModelTests: XCTestCase {
         imageURLString: "meal.jpg"
     )
 
-    private func makeRepository(isSuccessful: Bool = true) -> MealDetailRepositoryProtocol {
-        let stubDataRepository = MealDataStubRepository(isSuccessful: isSuccessful)
-        return MealDetailRepository(dataRepository: stubDataRepository)
-    }
-
     @MainActor
     func test_when_viewWillAppear_should_fetchAndSetMeal() async throws {
         let repository = makeRepository()
@@ -53,5 +48,10 @@ final class MealDetailViewModelTests: XCTestCase {
 
         await sut.handleViewWillAppear(with: meal)
         XCTAssertNotEqual(sut.meal, previousMeal)
+    }
+
+    private func makeRepository(isSuccessful: Bool = true) -> MealDetailRepositoryProtocol {
+        let stubDataRepository = MealDataStubRepository(isSuccessful: isSuccessful)
+        return MealDetailRepository(dataRepository: stubDataRepository)
     }
 }

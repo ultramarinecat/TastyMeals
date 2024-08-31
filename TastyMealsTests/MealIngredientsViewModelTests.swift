@@ -15,29 +15,6 @@ final class MealIngredientsViewModelTests: XCTestCase {
     private let measurement2 = "measurement 2"
 
     @MainActor
-    private func makeSUT(
-        ingredient1: String? = nil,
-        ingredient2: String? = nil,
-        measurement1: String? = nil,
-        measurement2: String? = nil
-    ) -> MealIngredientsViewModel {
-        let sut = MealIngredientsViewModel()
-        let meal = Meal(
-            id: "1",
-            name: "meal",
-            imageURLString: "meal.jpg",
-            ingredient1: ingredient1,
-            ingredient2: ingredient2,
-            measurement1: measurement1,
-            measurement2: measurement2
-        )
-
-        XCTAssertTrue((sut.ingredients ?? []).isEmpty)
-        sut.handleViewWillAppear(with: meal)
-        return sut
-    }
-
-    @MainActor
     func test_when_viewWillAppear_should_setIngredientsFromMeal() throws {
         let sut = makeSUT(
             ingredient1: ingredient1,
@@ -121,5 +98,28 @@ final class MealIngredientsViewModelTests: XCTestCase {
         let sutIngredient1 = sutIngredients[0]
         XCTAssertEqual(sutIngredient1.name, ingredient1)
         XCTAssertEqual(sutIngredient1.measurement, measurement1)
+    }
+
+    @MainActor
+    private func makeSUT(
+        ingredient1: String? = nil,
+        ingredient2: String? = nil,
+        measurement1: String? = nil,
+        measurement2: String? = nil
+    ) -> MealIngredientsViewModel {
+        let sut = MealIngredientsViewModel()
+        let meal = Meal(
+            id: "1",
+            name: "meal",
+            imageURLString: "meal.jpg",
+            ingredient1: ingredient1,
+            ingredient2: ingredient2,
+            measurement1: measurement1,
+            measurement2: measurement2
+        )
+
+        XCTAssertTrue((sut.ingredients ?? []).isEmpty)
+        sut.handleViewWillAppear(with: meal)
+        return sut
     }
 }

@@ -9,21 +9,6 @@ import XCTest
 
 // Meal list repository tests.
 final class MealListRepositoryTests: XCTestCase {
-    private func makeMeals() -> [Meal] {
-        [
-            Meal(
-                id: MealDataStubRepository.meal1ID,
-                name: MealDataStubRepository.meal1Name,
-                imageURLString: MealDataStubRepository.meal1ImageURLString
-            ),
-            Meal(
-                id: MealDataStubRepository.meal2ID,
-                name: MealDataStubRepository.meal2Name,
-                imageURLString: MealDataStubRepository.meal2ImageURLString
-            )
-        ]
-    }
-
     func test_fetchMeals_should_fetchAndReturnMeals() async throws {
         let sut = MealListRepository(dataRepository: MealDataStubRepository())
         let meals = makeMeals()
@@ -45,5 +30,20 @@ final class MealListRepositoryTests: XCTestCase {
             }
             XCTFail("Unexpected error: \(error)")
         }
+    }
+
+    private func makeMeals() -> [Meal] {
+        [
+            Meal(
+                id: MealDataStubRepository.meal1ID,
+                name: MealDataStubRepository.meal1Name,
+                imageURLString: MealDataStubRepository.meal1ImageURLString
+            ),
+            Meal(
+                id: MealDataStubRepository.meal2ID,
+                name: MealDataStubRepository.meal2Name,
+                imageURLString: MealDataStubRepository.meal2ImageURLString
+            )
+        ]
     }
 }

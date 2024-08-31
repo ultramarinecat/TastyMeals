@@ -15,10 +15,6 @@ final class MealImageViewModelTests: XCTestCase {
         imageURLString: "meal.jpg"
     )
 
-    private func makeSUT(dataRepository: MealDataRepository = MealDataStubRepository()) -> MealImageViewModel {
-        MealImageViewModel(dataRepository: dataRepository)
-    }
-
     @MainActor
     func test_given_isPreview_when_viewWillAppear_should_fetchAndSetMealPreviewImageData() async throws {
         let stubRepository = MealDataStubRepository()
@@ -50,5 +46,9 @@ final class MealImageViewModelTests: XCTestCase {
 
         await sut.handleViewWillAppear(with: meal, isPreview: false)
         XCTAssertEqual(sut.imageDescription, meal.name)
+    }
+
+    private func makeSUT(dataRepository: MealDataRepository = MealDataStubRepository()) -> MealImageViewModel {
+        MealImageViewModel(dataRepository: dataRepository)
     }
 }
