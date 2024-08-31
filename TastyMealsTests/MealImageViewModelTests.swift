@@ -34,7 +34,7 @@ final class MealImageViewModelTests: XCTestCase {
     @MainActor
     func test_given_isNotPreview_when_viewWillAppear_should_fetchAndSetMealImageData() async throws {
         let stubRepository = MealDataStubRepository()
-        let sut = makeSUT(dataRepository: MealDataStubRepository())
+        let sut = makeSUT(dataRepository: stubRepository)
 
         XCTAssertNil(sut.imageDataURL)
         await sut.handleViewWillAppear(with: meal, isPreview: false)
