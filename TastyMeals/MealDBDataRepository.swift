@@ -15,14 +15,14 @@ struct MealDBDataRepository: MealDataRepository {
     private static let mealURLFormatString = "https://themealdb.com/api/json/v1/1/lookup.php?i=%@"
 
     /// Fetches the meals data.
-    /// - Returns The meals `Data.
+    /// - Returns: The meals `Data.
     func fetchMealsData() async throws -> Data {
         let url = try makeURL(for: MealDBDataRepository.mealsURLString)
         return try await fetchData(for: url)
     }
 
     /// Fetches the meal data for the given `mealID`.
-    /// - Returns The `Data` for the given `mealID`.
+    /// - Returns: The `Data` for the given `mealID`.
     func fetchMealData(for mealID: String) async throws -> Data {
         let urlString = String(format: MealDBDataRepository.mealURLFormatString, mealID)
         let url = try makeURL(for: urlString)

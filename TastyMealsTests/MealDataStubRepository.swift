@@ -41,7 +41,7 @@ struct MealDataStubRepository: MealDataRepository {
     }
 
     /// Fetches the stub meals data.
-    /// - Returns The meals `Data`.
+    /// - Returns: The meals `Data`.
     func fetchMealsData() async throws -> Data {
         guard isSuccessful else {
             throw TastyMealsError.unsuccessful(statusCode: 500)
@@ -82,7 +82,7 @@ struct MealDataStubRepository: MealDataRepository {
     }
 
     /// Fetches the stub meal data for the given `mealID`.
-    /// - Returns The meal `Data` for the given `mealID`.
+    /// - Returns: The meal `Data` for the given `mealID`.
     func fetchMealData(for mealID: String) async throws -> Data {
         guard isSuccessful else {
             throw TastyMealsError.unsuccessful(statusCode: 500)
