@@ -32,7 +32,7 @@ struct MealDBDataRepository: MealDataRepository {
 
     /// Fetches the data url for the given image `urlString`.
     /// - Parameter urlString: The URL string of the image for which to fetch data.
-    /// - Returns: Imgae data `URL` for the given image `urlString`.
+    /// - Returns: Image data `URL` for the given image `urlString`.
     func fetchMealImageDataURL(urlString: String) async throws -> URL {
         let url = try makeURL(for: urlString)
         let data = try await fetchData(for: url)
