@@ -9,14 +9,6 @@ import Foundation
 
 /// Stub repository for fetching meal data.
 struct MealDataStubRepository: MealDataRepository {
-    static let meal1ID = "1"
-    static let meal1Name = "meal a"
-    static let meal1ImageURLString = "meal1.jpg"
-
-    static let meal2ID = "2"
-    static let meal2Name = "meal b"
-    static let meal2ImageURLString = "meal2.jpg"
-
     static let mealID = "1"
     static let mealName = "meal"
     static let mealImageURLString = "meal.jpg"
@@ -26,9 +18,32 @@ struct MealDataStubRepository: MealDataRepository {
     static let mealMeasurement1 = "measurement 1"
     static let mealMeasurement2 = "measurement 2"
 
+    static let meal1ID = "1"
+    static let meal2ID = "2"
+    static let meal1Name = "meal a"
+    static let meal2Name = "meal b"
+    static let meal1ImageURLString = "meal1.jpg"
+    static let meal2ImageURLString = "meal2.jpg"
+
     private let isSuccessful: Bool
     private let isOrderedByName: Bool
     private let isEmpty: Bool
+
+    private let emptyMealsData: Data = {
+        Data(
+            // swiftlint:disable indentation_width
+            """
+            {
+              "meals": []
+            }
+            """.utf8
+            // swiftlint:enable indentation_width
+        )
+    }()
+
+    private let unsuccessfulError: TastyMealsError = {
+        TastyMealsError.unsuccessful(statusCode: 500)
+    }()
 
     /// Creates a stub `MealDataRepository` for fetching meal data.
     /// - Parameter isSuccessful: Boolean value indicating whether fetching is successful, `true` by default.
@@ -44,20 +59,15 @@ struct MealDataStubRepository: MealDataRepository {
     /// - Returns: The meals `Data`.
     func fetchMealsData() async throws -> Data {
         guard isSuccessful else {
-            throw TastyMealsError.unsuccessful(statusCode: 500)
+            throw unsuccessfulError
         }
 
         guard !isEmpty else {
-            return Data(
-                // swiftlint:disable indentation_width
-                """
-                {
-                  "meals": []
-                }
-                """.utf8
-                // swiftlint:enable indentation_width
-            )
+            return emptyMealsData
         }
+
+        let meal1Name = isOrderedByName ? MealDataStubRepository.meal1Name : MealDataStubRepository.meal2Name
+        let meal2Name = isOrderedByName ? MealDataStubRepository.meal2Name : MealDataStubRepository.meal1Name
 
         return Data(
             // swiftlint:disable indentation_width
@@ -65,12 +75,12 @@ struct MealDataStubRepository: MealDataRepository {
             {
               "meals": [
                 {
-                  "strMeal": "\(isOrderedByName ? MealDataStubRepository.meal1Name : MealDataStubRepository.meal2Name)",
+                  "strMeal": "\(meal1Name)",
                   "strMealThumb": "\(MealDataStubRepository.meal1ImageURLString)",
                   "idMeal": "\(MealDataStubRepository.meal1ID)"
                 },
                 {
-                  "strMeal": "\(isOrderedByName ? MealDataStubRepository.meal2Name : MealDataStubRepository.meal1Name)",
+                  "strMeal": "\(meal2Name)",
                   "strMealThumb": "\(MealDataStubRepository.meal2ImageURLString)",
                   "idMeal": "\(MealDataStubRepository.meal2ID)"
                 }
@@ -86,19 +96,11 @@ struct MealDataStubRepository: MealDataRepository {
     /// - Returns: The meal `Data` for the given `mealID`.
     func fetchMealData(for mealID: String) async throws -> Data {
         guard isSuccessful else {
-            throw TastyMealsError.unsuccessful(statusCode: 500)
+            throw unsuccessfulError
         }
 
         guard !isEmpty else {
-            return Data(
-                // swiftlint:disable indentation_width
-                """
-                {
-                  "meals": []
-                }
-                """.utf8
-                // swiftlint:enable indentation_width
-            )
+            return emptyMealsData
         }
 
         return Data(
