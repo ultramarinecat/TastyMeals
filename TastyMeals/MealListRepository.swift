@@ -21,6 +21,7 @@ struct MealListRepository: MealListRepositoryProtocol {
 
     /// Fetches the list of meals.
     /// - Returns: An `Array` of `Meal`s.
+    /// - Throws: An error if fetching meals is unsuccesful.
     func fetchMeals() async throws -> [Meal] {
         let data = try await dataRepository.fetchMealsData()
         let mealsWrapper = try JSONDecoder().decode(MealsWrapper.self, from: data)
