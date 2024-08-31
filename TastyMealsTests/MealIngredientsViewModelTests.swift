@@ -47,15 +47,14 @@ final class MealIngredientsViewModelTests: XCTestCase {
         )
 
         let sutIngredients = try XCTUnwrap(sut.ingredients)
-        XCTAssertTrue(sutIngredients.count == 2)
+        XCTAssertEqual(sutIngredients.count, 2)
 
         let sutIngredient1 = sutIngredients[0]
-        XCTAssertTrue(sutIngredient1.name == ingredient1)
-        XCTAssertTrue(sutIngredient1.measurement == measurement1)
+        XCTAssertEqual(sutIngredient1.name, ingredient1)
+        XCTAssertEqual(sutIngredient1.measurement, measurement1)
 
         let sutIngredient2 = sutIngredients[1]
-        XCTAssertTrue(sutIngredient2.name == ingredient2)
-        XCTAssertTrue(sutIngredient2.measurement == measurement2)
+        XCTAssertEqual(sutIngredient2.measurement, measurement2)
     }
 
     @MainActor
@@ -67,11 +66,11 @@ final class MealIngredientsViewModelTests: XCTestCase {
         )
 
         let sutIngredients = try XCTUnwrap(sut.ingredients)
-        XCTAssertTrue(sutIngredients.count == 1)
+        XCTAssertEqual(sutIngredients.count, 1)
 
         let sutIngredient1 = sutIngredients[0]
-        XCTAssertTrue(sutIngredient1.name == ingredient1)
-        XCTAssertTrue(sutIngredient1.measurement == measurement1)
+        XCTAssertEqual(sutIngredient1.name, ingredient1)
+        XCTAssertEqual(sutIngredient1.measurement, measurement1)
     }
 
     @MainActor
@@ -83,11 +82,11 @@ final class MealIngredientsViewModelTests: XCTestCase {
         )
 
         let sutIngredients = try XCTUnwrap(sut.ingredients)
-        XCTAssertTrue(sutIngredients.count == 1)
+        XCTAssertEqual(sutIngredients.count, 1)
 
         let sutIngredient1 = sutIngredients[0]
-        XCTAssertTrue(sutIngredient1.name == ingredient1)
-        XCTAssertTrue(sutIngredient1.measurement == measurement1)
+        XCTAssertEqual(sutIngredient1.name, ingredient1)
+        XCTAssertEqual(sutIngredient1.measurement, measurement1)
     }
 
     @MainActor
@@ -100,11 +99,11 @@ final class MealIngredientsViewModelTests: XCTestCase {
         )
 
         let sutIngredients = try XCTUnwrap(sut.ingredients)
-        XCTAssertTrue(sutIngredients.count == 1)
+        XCTAssertEqual(sutIngredients.count, 1)
 
         let sutIngredient1 = sutIngredients[0]
-        XCTAssertTrue(sutIngredient1.name == ingredient1)
-        XCTAssertTrue(sutIngredient1.measurement == measurement1)
+        XCTAssertEqual(sutIngredient1.name, ingredient1)
+        XCTAssertEqual(sutIngredient1.measurement, measurement1)
     }
 
     @MainActor
@@ -117,10 +116,10 @@ final class MealIngredientsViewModelTests: XCTestCase {
         )
 
         let sutIngredients = try XCTUnwrap(sut.ingredients)
-        XCTAssertTrue(sutIngredients.count == 1)
+        XCTAssertEqual(sutIngredients.count, 1)
 
         let sutIngredient1 = sutIngredients[0]
-        XCTAssertTrue(sutIngredient1.name == ingredient1)
-        XCTAssertTrue(sutIngredient1.measurement == measurement1)
+        XCTAssertEqual(sutIngredient1.name, ingredient1)
+        XCTAssertEqual(sutIngredient1.measurement, measurement1)
     }
 }
