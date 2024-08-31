@@ -27,19 +27,19 @@ final class MealDetailViewModel {
     }
 
     /// Handles tasks that need to be performed before view appears. Updates details for the given `meal`.
-    /// - Parameter meal: The `Meal` for which to display details.
+    /// - Parameter mealID: The id of the `Meal` for which to display details.
     @MainActor
-    func handleViewWillAppear(with meal: Meal) async {
+    func handleViewWillAppear(for mealID: String) async {
         do {
             clearPreviousMeal()
-            let meal = try await repository.fetchMeal(for: meal.id)
+            let meal = try await repository.fetchMeal(for: mealID)
             try Task.checkCancellation()
 
             clearErrorMessage()
             self.meal = meal
         } catch {
             guard !Task.isCancelled else {
-                logger.debug("Fetch details for meal with id: \(meal.id) task cancelled")
+                logger.debug("Fetch details for meal with id: \(mealID) task cancelled")
                 return
             }
 

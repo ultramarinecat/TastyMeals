@@ -16,7 +16,7 @@ struct MealDetailContainerView: View {
     var body: some View {
         MealDetailView(viewModel: viewModel)
             .task(id: meal) {
-                await viewModel.handleViewWillAppear(with: meal)
+                await viewModel.handleViewWillAppear(for: meal.id)
             }
     }
 }
