@@ -9,26 +9,9 @@ import XCTest
 
 /// Meal list view model tests.
 final class MealsListViewModelTests: XCTestCase {
-    private func makeSUT(isSuccessful: Bool = true, isOrderedByName: Bool = true) async -> MealListViewModel {
+    private func makeRepository(isSuccessful: Bool = true, isOrderedByName: Bool = true) -> MealListRepositoryProtocol {
         let stubDataRepository = MealDataStubRepository(isSuccessful: isSuccessful, isOrderedByName: isOrderedByName)
-        let repository = MealListRepository(dataRepository: stubDataRepository)
-
-        return MealListViewModel(repository: repository)
-    }
-
-    private func makeMeals() -> [Meal] {
-        [
-            Meal(
-                id: MealDataStubRepository.meal1ID,
-                name: MealDataStubRepository.meal1Name,
-                imageURLString: MealDataStubRepository.meal1ImageURLString
-            ),
-            Meal(
-                id: MealDataStubRepository.meal2ID,
-                name: MealDataStubRepository.meal2Name,
-                imageURLString: MealDataStubRepository.meal2ImageURLString
-            )
-        ]
+        return MealListRepository(dataRepository: stubDataRepository)
     }
 
     private func isSorted(meals: [Meal]) -> Bool {
@@ -37,27 +20,32 @@ final class MealsListViewModelTests: XCTestCase {
 
     @MainActor
     func test_when_viewWillAppear_should_fetchAndSetMeals() async throws {
-        let meals = makeMeals()
-        let sut = await makeSUT()
+        let repository = makeRepository()
+        let sut = MealListViewModel(repository: repository)
+
+        let expectedMeals = try await repository.fetchMeals()
         XCTAssertNil(sut.meals)
 
         await sut.handleViewWillAppear()
-        XCTAssertEqual(sut.meals, meals)
+        XCTAssertEqual(sut.meals, expectedMeals)
     }
 
     @MainActor
     func test_when_refreshButtonTapped_should_fetchAndSetMeals() async throws {
-        let meals = makeMeals()
-        let sut = await makeSUT()
+        let repository = makeRepository()
+        let sut = MealListViewModel(repository: repository)
+
+        let expectedMeals = try await repository.fetchMeals()
         XCTAssertNil(sut.meals)
 
         await sut.handleRefreshButtonTap()
-        XCTAssertEqual(sut.meals, meals)
+        XCTAssertEqual(sut.meals, expectedMeals)
     }
 
     @MainActor
     func test_given_fetchUnsuccesful_when_viewWillAppear_should_displayErrorMessage() async throws {
-        let sut = await makeSUT(isSuccessful: false)
+        let repository = makeRepository(isSuccessful: false)
+        let sut = MealListViewModel(repository: repository)
         XCTAssertNil(sut.errorMessage)
 
         await sut.handleViewWillAppear()
@@ -66,7 +54,8 @@ final class MealsListViewModelTests: XCTestCase {
 
     @MainActor
     func test_given_fetchUnsuccesful_when_refreshButtonTapped_should_displayErrorMessage() async throws {
-        let sut = await makeSUT(isSuccessful: false)
+        let repository = makeRepository(isSuccessful: false)
+        let sut = MealListViewModel(repository: repository)
         XCTAssertNil(sut.errorMessage)
 
         await sut.handleRefreshButtonTap()
@@ -75,7 +64,8 @@ final class MealsListViewModelTests: XCTestCase {
 
     @MainActor
     func test_when_viewWillAppear_should_setMealsInAlphabeticalOrderByName() async throws {
-        let sut = await makeSUT(isOrderedByName: false)
+        let repository = makeRepository(isOrderedByName: false)
+        let sut = MealListViewModel(repository: repository)
 
         await sut.handleViewWillAppear()
         XCTAssertTrue(isSorted(meals: try XCTUnwrap(sut.meals)))
