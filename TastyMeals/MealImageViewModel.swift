@@ -43,7 +43,7 @@ final class MealImageViewModel {
                 logger.debug("Fetch image data for meal with id: \(meal.id) task cancelled")
                 return
             }
-            logger.info("\(error.localizedDescription)")
+            logger.warning("Failed to fetch meal image data: \(error.localizedDescription)")
         }
     }
 }

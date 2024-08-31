@@ -54,7 +54,7 @@ final class MealListViewModel {
                 return
             }
 
-            logger.info("\(error.localizedDescription)")
+            logger.warning("Failed to fetch meals: \(error.localizedDescription)")
             errorMessage = "Could not load your tasty desserts 😿. Please try again later 🍰"
         }
     }

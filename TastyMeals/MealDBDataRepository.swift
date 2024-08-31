@@ -39,7 +39,7 @@ struct MealDBDataRepository: MealDataRepository {
 
         let dataURL = URL(string: "data:image/png;base64,\(data.base64EncodedString())")
         guard let dataURL else {
-            logger.warning("Could not create data url for data fetched from url: \(urlString)")
+            logger.warning("Could not create data url for data fetched from url: \(url.absoluteString)")
             throw TastyMealsError.invalidURL(string: urlString)
         }
         return dataURL
@@ -51,19 +51,24 @@ struct MealDBDataRepository: MealDataRepository {
             return cachedResponse.data
         }
 
-        let (data, response) = try await URLSession.shared.data(for: request)
-        guard let httpResponse = response as? HTTPURLResponse else {
-            logger.error("Unexpected URLResponse type")
-            assertionFailure("Unexpected URLResponse type")
-            throw TastyMealsError.unexpected
-        }
+        do {
+            let (data, response) = try await URLSession.shared.data(for: request)
+            guard let httpResponse = response as? HTTPURLResponse else {
+                logger.error("Unexpected URLResponse type")
+                assertionFailure("Unexpected URLResponse type")
+                throw TastyMealsError.unexpected
+            }
 
-        let statusCode = httpResponse.statusCode
-        guard statusCode == 200 else {
-            logger.warning("Request to url: \(url.absoluteString) unsuccesful: \(statusCode)")
-            throw TastyMealsError.unsuccessful(statusCode: statusCode)
+            let statusCode = httpResponse.statusCode
+            guard statusCode == 200 else {
+                logger.warning("Request to url: \(url.absoluteString) unsuccesful: \(statusCode)")
+                throw TastyMealsError.unsuccessful(statusCode: statusCode)
+            }
+            return data
+        } catch {
+            logger.warning("Failed to fetch data from url: \(url.absoluteString) with error: \(error.localizedDescription)")
+            throw error
         }
-        return data
     }
 
     private func makeURL(for urlString: String) throws -> URL {
