@@ -22,7 +22,7 @@ final class MealDetailRepositoryTests: XCTestCase {
         )
     }
 
-    func test_should_fetchAndReturnMeal() async throws {
+    func test_fetchMeal_should_fetchAndReturnMeal() async throws {
         let sut = MealDetailRepository(dataRepository: MealDataStubRepository())
         let meal = makeMeal()
 
@@ -30,19 +30,19 @@ final class MealDetailRepositoryTests: XCTestCase {
         XCTAssertEqual(fetchedMeal, meal)
     }
 
-    func test_given_fetchedMealEmpty_should_throw() async throws {
+    func test_fetchMeal_when_fetchedMealEmpty_should_throw() async throws {
         let stubDataRepository = MealDataStubRepository(isEmpty: true)
         let sut = MealDetailRepository(dataRepository: stubDataRepository)
         let mealID = "1"
 
         do {
             _ = try await sut.fetchMeal(for: mealID)
-            XCTFail("Should throw no meal details error on empty fetched meal")
+            XCTFail("Expected TastyMealsError.noMealDetails but no error was thrown.")
         } catch {
             if case TastyMealsError.noMealDetails(let id) = error, id == mealID {
                 return
             }
-            XCTFail("Unexpected error thrown on empty fetched meal")
+            XCTFail("Unexpected error: \(error)")
         }
     }
 }
