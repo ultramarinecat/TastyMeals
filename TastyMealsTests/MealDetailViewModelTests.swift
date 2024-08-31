@@ -58,9 +58,8 @@ final class MealDetailViewModelTests: XCTestCase {
     func test_given_hasPreviousMeal_when_viewWillAppear_should_clearPreviousMeal() async throws {
         let meal1 = makeMeal(mealID: "1")
         let meal2 = makeMeal(mealID: "2")
-        let sut = await makeSUT(meal: meal1)
 
-        await sut.handleViewWillAppear(with: meal1)
+        let sut = await makeSUT(meal: meal1)
         XCTAssertEqual(sut.meal, meal1)
 
         await sut.handleViewWillAppear(with: meal2)
