@@ -7,11 +7,21 @@ import Foundation
 
 /// Meal ingredient model.
 struct MealIngredient: Identifiable {
-    let id = UUID()
+    let id: UUID
     let name: String
     let measurement: String
 
+    /// Creates a `MealIngredient`.
+    /// - Parameter id: The ingredient id, a `UUID` by default.
+    /// - Parameter name: The ingredient name.
+    /// - Parameter measurement: The ingredient measurement.
+    init(id: UUID = UUID(), name: String, measurement: String) {
+        self.id = id
+        self.name = name
+        self.measurement = measurement
+    }
+
     var description: String {
-        "\(name): \(measurement)"
+        String(format: NSLocalizedString("%@: %@", comment: "Ingredient name and measurement description"), name, measurement)
     }
 }
