@@ -22,6 +22,7 @@ struct MealDBDataRepository: MealDataRepository {
     }
 
     /// Fetches the meal data for the given `mealID`.
+    /// - Parameter mealID: The id of the `Meal` for which to fetch data.
     /// - Returns: The `Data` for the given `mealID`.
     func fetchMealData(for mealID: String) async throws -> Data {
         let urlString = String(format: MealDBDataRepository.mealURLFormatString, mealID)
@@ -30,6 +31,7 @@ struct MealDBDataRepository: MealDataRepository {
     }
 
     /// Fetches the data url for the given image `urlString`.
+    /// - Parameter urlString: The URL string of the image for which to fetch data.
     /// - Returns: Imgae data `URL` for the given image `urlString`.
     func fetchMealImageDataURL(urlString: String) async throws -> URL {
         let url = try makeURL(for: urlString)
