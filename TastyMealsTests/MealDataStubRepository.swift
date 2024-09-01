@@ -46,9 +46,10 @@ struct MealDataStubRepository: MealDataRepository {
     }()
 
     /// Creates a stub `MealDataRepository` for fetching meal data.
-    /// - Parameter isSuccessful: Boolean value indicating whether fetching is successful, `true` by default.
-    /// - Parameter isOrderedByName: Boolean value indicating whether the fetched meals are ordered by name, `true` by default.
-    /// - Parameter isEmpty: Boolean value indicating whether the fetched meals wrapper is empty, `false` by default.
+    /// - Parameters:
+    ///   - isSuccessful: Boolean value indicating whether fetching is successful, `true` by default.
+    ///   - isOrderedByName: Boolean value indicating whether the fetched meals are ordered by name, `true` by default.
+    ///   - isEmpty: Boolean value indicating whether the fetched meals wrapper is empty, `false` by default.
     init(isSuccessful: Bool = true, isOrderedByName: Bool = true, isEmpty: Bool = false) {
         self.isSuccessful = isSuccessful
         self.isOrderedByName = isOrderedByName

@@ -12,9 +12,10 @@ struct MealIngredient: Identifiable {
     let measurement: String
 
     /// Creates a `MealIngredient`.
-    /// - Parameter id: The ingredient id, a `UUID` by default.
-    /// - Parameter name: The ingredient name.
-    /// - Parameter measurement: The ingredient measurement.
+    /// - Parameters:
+    ///   - id: The ingredient id, a `UUID` by default.
+    ///   - name: The ingredient name.
+    ///   - measurement: The ingredient measurement.
     init(id: UUID = UUID(), name: String, measurement: String) {
         self.id = id
         self.name = name
