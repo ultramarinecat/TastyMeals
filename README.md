@@ -4,8 +4,7 @@ Tasty Meals is an iOS app for browsing dessert recipes from [TheMealDB](https://
 
 - Displays dessert names, instructions, ingredients and measurements, and dessert images!
 - Caches desserts for later viewing even without an internet connection
-- Easily navigatable with [VoiceOver](https://support.apple.com/guide/voiceover/welcome/mac)!
-- Uses MVVM, Repository, and Container/Presentational patterns for improved testability!
+- Uses MVVM, Repository, and Container/Presentational patterns for improved testability
 - Uses Swift [Concurrency](https://developer.apple.com/documentation/swift/concurrency/) and [Observation](https://developer.apple.com/documentation/observation)
 - Supports iOS and iPadOS 17 and above
 

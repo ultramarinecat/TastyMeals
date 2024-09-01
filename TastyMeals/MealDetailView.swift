@@ -23,6 +23,7 @@ struct MealDetailView: View {
         ZStack {
             if let errorMessage = viewModel.errorMessage {
                 Text(errorMessage)
+                    .accessibilityLabel("Error message: \(errorMessage)")
                     .padding(MealDetailView.errorMessagePadding)
             } else if let meal = viewModel.meal {
                 ScrollView {
@@ -30,6 +31,7 @@ struct MealDetailView: View {
                         Text(meal.name)
                             .accessibilityAddTraits(.isHeader)
                             .accessibilityHeading(.h1)
+                            .accessibilityLabel("Meal name: \(meal.name)")
                             .font(.title)
                             .fontWeight(.semibold)
 
@@ -49,6 +51,7 @@ struct MealDetailView: View {
                 }
             } else {
                 LoadingView()
+                    .accessibilityLabel("Loading meal details")
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

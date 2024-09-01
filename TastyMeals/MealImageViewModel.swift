@@ -37,7 +37,7 @@ final class MealImageViewModel {
             try Task.checkCancellation()
 
             self.imageDataURL = imageDataURL
-            self.imageDescription = meal.name
+            imageDescription = meal.name
         } catch {
             guard !Task.isCancelled else {
                 logger.debug("Fetch image data for meal with id: \(meal.id) task cancelled")

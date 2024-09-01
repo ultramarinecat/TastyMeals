@@ -27,12 +27,14 @@ struct MealIngredientsView: View {
                     VStack(alignment: .leading) {
                         ForEach(ingredients) { ingredient in
                             Text(ingredient.description)
+                                .accessibilityLabel("Ingredient: \(ingredient.description)")
                         }
                     }
                 }
             }
         } else {
             LoadingView()
+                .accessibilityLabel("Loading ingredients")
         }
     }
 }

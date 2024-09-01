@@ -14,6 +14,13 @@ struct MealImageView: View {
     private static let imageCornerRadius = 8.0
     private static let loadFailureSystemSymbolImageName = "photo"
 
+    @MainActor private var imageAccessibilityLabelText: String? {
+        guard let imageDescription = viewModel.imageDescription else {
+            return nil
+        }
+        return String(format: NSLocalizedString("Image of %@", comment: "Image description"), imageDescription)
+    }
+
     /// The view model.
     let viewModel: MealImageViewModel
     /// Boolean value indicating whether the image is a preview.
@@ -27,14 +34,15 @@ struct MealImageView: View {
                     .resizable()
                     .accessibilityElement(children: .ignore)
                     .accessibilityAddTraits(.isImage)
-                    .accessibilityLabel(viewModel.imageDescription ?? "")
+                    .accessibilityLabel(imageAccessibilityLabelText ?? "")
             } else if phase.error != nil {
                 Image(systemName: MealImageView.loadFailureSystemSymbolImageName)
                     .font(.largeTitle)
                     .foregroundStyle(.secondary)
-                    .accessibilityLabel("Failed to load")
+                    .accessibilityLabel("Failed to load meal image")
             } else {
                 LoadingView()
+                    .accessibilityLabel("Loading meal image")
             }
         }
         .frame(

@@ -20,6 +20,7 @@ struct MealListView: View {
             if let errorMessage = viewModel.errorMessage {
                 VStack {
                     Text(errorMessage)
+                        .accessibilityLabel("Error message: \(errorMessage)")
                         .padding(.horizontal, MealListView.errorMessageHorizontalPadding)
                     Button("Refresh") {
                         Task {
@@ -27,12 +28,14 @@ struct MealListView: View {
                         }
                     }
                     .buttonStyle(.bordered)
+                    .accessibilityLabel("Refresh meals")
                     .padding(.top, MealListView.refreshButtonTopPadding)
                 }
             } else if let meals = viewModel.meals {
                 MealListNavigationView(meals: meals)
             } else {
                 LoadingView()
+                    .accessibilityLabel("Loading meals")
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

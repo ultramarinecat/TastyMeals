@@ -23,6 +23,7 @@ struct MealInstructionsView: View {
                 .padding(.bottom, MealInstructionsView.headingButtonPadding)
 
             Text(instructions)
+                .accessibilityLabel("Instructions: \(instructions)")
         }
     }
 }

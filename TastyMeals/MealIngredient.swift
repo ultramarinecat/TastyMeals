@@ -22,6 +22,7 @@ struct MealIngredient: Identifiable {
         self.measurement = measurement
     }
 
+    /// The ingredient description.
     var description: String {
         String(format: NSLocalizedString("%@: %@", comment: "Ingredient name and measurement description"), name, measurement)
     }
