@@ -39,7 +39,7 @@
 		DA9FB4EF2C753D61005DF2FF /* TastyMealsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FB4EE2C753D61005DF2FF /* TastyMealsApp.swift */; };
 		DA9FB4F32C753D62005DF2FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9FB4F22C753D62005DF2FF /* Assets.xcassets */; };
 		DAA32EE52C80D339003C1A68 /* MealListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA32EE42C80D339003C1A68 /* MealListNavigationView.swift */; };
-		DAA32EE72C80D623003C1A68 /* MealInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA32EE62C80D623003C1A68 /* MealInstructionsView.swift */; };
+		DAA32EE72C80D623003C1A68 /* MealDetailInstructionsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA32EE62C80D623003C1A68 /* MealDetailInstructionsView.swift */; };
 		DAB230DE2C7BA9C5008DE022 /* MealListContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB230DD2C7BA9C5008DE022 /* MealListContainerView.swift */; };
 		DAB230E02C7BA9DE008DE022 /* MealDetailContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB230DF2C7BA9DE008DE022 /* MealDetailContainerView.swift */; };
 		DAFB0A792C78F5FE007B5EF7 /* MealDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAFB0A782C78F5FE007B5EF7 /* MealDetailViewModel.swift */; };
@@ -94,7 +94,7 @@
 		DA9FB4F22C753D62005DF2FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DA9FB4FB2C753D62005DF2FF /* TastyMealsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TastyMealsTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAA32EE42C80D339003C1A68 /* MealListNavigationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListNavigationView.swift; sourceTree = "<group>"; };
-		DAA32EE62C80D623003C1A68 /* MealInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealInstructionsView.swift; sourceTree = "<group>"; };
+		DAA32EE62C80D623003C1A68 /* MealDetailInstructionsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailInstructionsView.swift; sourceTree = "<group>"; };
 		DAB230DD2C7BA9C5008DE022 /* MealListContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListContainerView.swift; sourceTree = "<group>"; };
 		DAB230DF2C7BA9DE008DE022 /* MealDetailContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailContainerView.swift; sourceTree = "<group>"; };
 		DAB669472C80E66B004DF518 /* TastyMeals.xctestplan */ = {isa = PBXFileReference; lastKnownFileType = text; path = TastyMeals.xctestplan; sourceTree = "<group>"; };
@@ -185,7 +185,7 @@
 				DA281A4A2C77A37D00A5DED6 /* MealDetailView.swift */,
 				DAFB0A782C78F5FE007B5EF7 /* MealDetailViewModel.swift */,
 				DAB230DF2C7BA9DE008DE022 /* MealDetailContainerView.swift */,
-				DAA32EE62C80D623003C1A68 /* MealInstructionsView.swift */,
+				DAA32EE62C80D623003C1A68 /* MealDetailInstructionsView.swift */,
 				DA4CD5032C7FAED10034691C /* MealDetailRepositoryProtocol.swift */,
 				DA5E797E2C7912A500BC5508 /* MealDetailRepository.swift */,
 			);
@@ -407,7 +407,7 @@
 				DAA32EE52C80D339003C1A68 /* MealListNavigationView.swift in Sources */,
 				DA4CD5082C7FAF330034691C /* MealDataRepository.swift in Sources */,
 				DA4CD5012C7F94720034691C /* MealDBDataRepository.swift in Sources */,
-				DAA32EE72C80D623003C1A68 /* MealInstructionsView.swift in Sources */,
+				DAA32EE72C80D623003C1A68 /* MealDetailInstructionsView.swift in Sources */,
 				DA9FB4EF2C753D61005DF2FF /* TastyMealsApp.swift in Sources */,
 				DA5AADDF2C7CDC3F00368DFE /* MealImageView.swift in Sources */,
 				DA75EA9A2C7BB3E3008FD877 /* LoadingView.swift in Sources */,

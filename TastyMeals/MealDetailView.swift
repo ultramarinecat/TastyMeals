@@ -48,7 +48,7 @@ struct MealDetailView: View {
                             .padding(.top, MealDetailView.ingredientsViewTopPadding)
 
                         if let instructions = meal.instructions {
-                            MealInstructionsView(instructions: instructions)
+                            MealDetailInstructionsView(instructions: instructions)
                                 .padding(.top, MealDetailView.instructionsStackTopPadding)
                         }
                     }

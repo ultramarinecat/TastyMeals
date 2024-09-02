@@ -1,12 +1,12 @@
 //
-//  MealInstructionsView.swift
+//  MealDetailInstructionsView.swift
 //  TastyMeals
 //
 
 import SwiftUI
 
-/// Meal instructions view.
-struct MealInstructionsView: View {
+/// Meal detail instructions view.
+struct MealDetailInstructionsView: View {
     private static let headingButtonPadding = 5.0
 
     /// The meal instructions to display.
@@ -20,7 +20,7 @@ struct MealInstructionsView: View {
                 .accessibilityHeading(.h2)
                 .font(.title)
                 .fontWeight(.medium)
-                .padding(.bottom, MealInstructionsView.headingButtonPadding)
+                .padding(.bottom, MealDetailInstructionsView.headingButtonPadding)
 
             Text(instructions)
                 .accessibilityLabel(
