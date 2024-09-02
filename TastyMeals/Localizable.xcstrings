@@ -1,0 +1,89 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@: %@" : {
+      "comment" : "Meal ingredient description. First variable is the ingredient name. Second variable is the ingredient measurement.",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@: %2$@"
+          }
+        }
+      }
+    },
+    "Could not load your dessert 😿. Please try again later 🍰" : {
+      "comment" : "Meal details error message."
+    },
+    "Could not load your tasty desserts 😿. Please try again later 🍰" : {
+      "comment" : "Meal list error message."
+    },
+    "Desserts" : {
+      "comment" : "Meal list navigation title."
+    },
+    "Error message: %@" : {
+      "comment" : "Accessibility label for a meal error message. Variable is the error message."
+    },
+    "Failed to load meal image" : {
+      "comment" : "Accessibility label for the meal image failed to load default image."
+    },
+    "Image of %@" : {
+      "comment" : "Accessibility label for the meal image."
+    },
+    "Ingredient: %@" : {
+      "comment" : "Accessibility label for a meal ingredient."
+    },
+    "Ingredients" : {
+      "comment" : "Meal ingredients section title."
+    },
+    "Instructions" : {
+      "comment" : "Meal instructions section title."
+    },
+    "Instructions: %@" : {
+      "comment" : "Accessibility label for the meal instructions. Variable is the meal instructions."
+    },
+    "Invalid url: %@" : {
+      "comment" : "Invalid url error. Variable is the url string."
+    },
+    "Loading" : {
+      "comment" : "Accessibility label for the loading progress indicator."
+    },
+    "Loading ingredients" : {
+      "comment" : "Accessibility label for the meal ingredients loading indicator."
+    },
+    "Loading meal details" : {
+      "comment" : "Accessibility label for the meal details loading indicator."
+    },
+    "Loading meal image" : {
+      "comment" : "Accessibility label for the loading meal image progress indicator."
+    },
+    "Loading meals" : {
+      "comment" : "Accessibility label for the loading meal list progress indicator."
+    },
+    "Meal name: %@" : {
+      "comment" : "Accessibility label for the meal name. Variable is the meal name."
+    },
+    "No meal details returned for meal id: %@" : {
+      "comment" : "No meal details returned error. Variable is the meal id."
+    },
+    "No meals returned" : {
+      "comment" : "No meals returned error."
+    },
+    "Please select a tasty dessert 🍰" : {
+      "comment" : "Meal selection placeholder."
+    },
+    "Refresh" : {
+      "comment" : "Refresh meal list button label."
+    },
+    "Refresh meals" : {
+      "comment" : "Accessibility label for the refresh meal list button."
+    },
+    "Unexpected error" : {
+      "comment" : "Unexpected error."
+    },
+    "Unsuccessful request with status code: %lld" : {
+      "comment" : "Unsuccessful request error. Variable is the status code."
+    }
+  },
+  "version" : "1.0"
+}

@@ -23,7 +23,10 @@ struct MealDetailView: View {
         ZStack {
             if let errorMessage = viewModel.errorMessage {
                 Text(errorMessage)
-                    .accessibilityLabel("Error message: \(errorMessage)")
+                    .accessibilityLabel(
+                        // swiftlint:disable:next line_length
+                        Text("Error message: \(errorMessage)", comment: "Accessibility label for a meal error message. Variable is the error message.")
+                    )
                     .padding(MealDetailView.errorMessagePadding)
             } else if let meal = viewModel.meal {
                 ScrollView {
@@ -31,7 +34,10 @@ struct MealDetailView: View {
                         Text(meal.name)
                             .accessibilityAddTraits(.isHeader)
                             .accessibilityHeading(.h1)
-                            .accessibilityLabel("Meal name: \(meal.name)")
+                            .accessibilityLabel(
+                                // swiftlint:disable:next line_length
+                                Text("Meal name: \(meal.name)", comment: "Accessibility label for the meal name. Variable is the meal name.")
+                            )
                             .font(.title)
                             .fontWeight(.semibold)
 
@@ -51,7 +57,8 @@ struct MealDetailView: View {
                 }
             } else {
                 LoadingView()
-                    .accessibilityLabel("Loading meal details")
+                    // swiftlint:disable:next line_length
+                    .accessibilityLabel(Text("Loading meal details", comment: "Accessibility label for the meal details loading indicator."))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

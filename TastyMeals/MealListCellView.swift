@@ -15,7 +15,9 @@ struct MealListCellView: View {
         HStack {
             MealImageContainerView(meal: meal, isPreview: true)
             Text(meal.name)
-                .accessibilityLabel("Meal name: \(meal.name)")
+                .accessibilityLabel(
+                    Text("Meal name: \(meal.name)", comment: "Accessibility label for the meal name. Variable is the meal name.")
+                )
         }
     }
 }

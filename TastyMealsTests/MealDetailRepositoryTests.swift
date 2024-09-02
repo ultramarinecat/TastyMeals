@@ -34,7 +34,7 @@ final class MealDetailRepositoryTests: XCTestCase {
 
         do {
             _ = try await sut.fetchMeal(for: mealID)
-            XCTFail("Expected TastyMealsError.noMealDetails but no error was thrown.")
+            XCTFail("Expected TastyMealsError.noMealDetails but no error was thrown")
         } catch {
             if case TastyMealsError.noMealDetails(let id) = error, id == mealID {
                 return

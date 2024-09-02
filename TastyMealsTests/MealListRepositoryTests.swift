@@ -23,7 +23,7 @@ final class MealListRepositoryTests: XCTestCase {
 
         do {
             _ = try await sut.fetchMeals()
-            XCTFail("Expected TastyMealsError.noMeals but no error was thrown.")
+            XCTFail("Expected TastyMealsError.noMeals but no error was thrown")
         } catch {
             if case TastyMealsError.noMeals = error {
                 return

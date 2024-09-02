@@ -8,12 +8,11 @@ import SwiftUI
 /// Meal list detail placeholder view.
 struct MealListDetailPlaceholderView: View {
     private static let backgroundAccentColorOpacity = 0.2
-    private static let selectionPlaceholderText = "Please select a tasty dessert 🍰"
+    private let mealSelectionPlaceholder = String(localized: "Please select a tasty dessert 🍰", comment: "Meal selection placeholder.")
 
     /// The content and behavior of the view.
     var body: some View {
-        Text(MealListDetailPlaceholderView.selectionPlaceholderText)
-            .accessibilityLabel("Selection placeholder text: \(MealListDetailPlaceholderView.selectionPlaceholderText)")
+        Text(mealSelectionPlaceholder)
             .frame(maxWidth: .infinity, maxHeight: .infinity)
             .background(Color.accentColor.opacity(MealListDetailPlaceholderView.backgroundAccentColorOpacity))
     }

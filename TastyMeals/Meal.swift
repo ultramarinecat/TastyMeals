@@ -60,7 +60,7 @@ struct Meal: Equatable, Hashable, Identifiable {
     let measurement20: String?
 
     var imagePreviewURLString: String {
-        imageURLString + "/preview"
+        String(format: "%@/preview", imageURLString)
     }
 
     init(

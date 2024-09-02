@@ -12,6 +12,6 @@ struct LoadingView: View {
         ProgressView()
             .accessibilityElement(children: .ignore)
             .accessibilityAddTraits(.isImage)
-            .accessibilityLabel("Loading")
+            .accessibilityLabel(Text("Loading", comment: "Accessibility label for the loading progress indicator."))
     }
 }

@@ -17,7 +17,7 @@ struct MealIngredientsView: View {
         if let ingredients = viewModel.ingredients {
             if !ingredients.isEmpty {
                 VStack {
-                    Text("Ingredients")
+                    Text("Ingredients", comment: "Meal ingredients section title.")
                         .accessibilityAddTraits(.isHeader)
                         .accessibilityHeading(.h2)
                         .font(.title)
@@ -27,14 +27,16 @@ struct MealIngredientsView: View {
                     VStack(alignment: .leading) {
                         ForEach(ingredients) { ingredient in
                             Text(ingredient.description)
-                                .accessibilityLabel("Ingredient: \(ingredient.description)")
+                                .accessibilityLabel(
+                                    Text("Ingredient: \(ingredient.description)", comment: "Accessibility label for a meal ingredient.")
+                                )
                         }
                     }
                 }
             }
         } else {
             LoadingView()
-                .accessibilityLabel("Loading ingredients")
+                .accessibilityLabel(Text("Loading ingredients", comment: "Accessibility label for the meal ingredients loading indicator."))
         }
     }
 }

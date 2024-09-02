@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DA0922FF2C812A1800EEC5D9 /* MealListRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0922FE2C812A1800EEC5D9 /* MealListRepositoryTests.swift */; };
 		DA0923012C812A3C00EEC5D9 /* MealDetailRepositoryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA0923002C812A3C00EEC5D9 /* MealDetailRepositoryTests.swift */; };
+		DA09AEB42C86361C0009A08D /* InfoPlist.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = DA09AEB32C86361C0009A08D /* InfoPlist.xcstrings */; };
 		DA1B0B1B2C79299A00B9F5EE /* TastyMealsError.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA1B0B1A2C79299A00B9F5EE /* TastyMealsError.swift */; };
 		DA281A4B2C77A37D00A5DED6 /* MealDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA281A4A2C77A37D00A5DED6 /* MealDetailView.swift */; };
 		DA309C262C7FE6B200D795D7 /* MealListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA309C252C7FE6B100D795D7 /* MealListViewModelTests.swift */; };
@@ -34,6 +35,7 @@
 		DA75EA9C2C7BB458008FD877 /* MealListDetailPlaceholderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA75EA9B2C7BB458008FD877 /* MealListDetailPlaceholderView.swift */; };
 		DA7A84782C7D37E500EA068A /* MealImageContainerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A84772C7D37E500EA068A /* MealImageContainerView.swift */; };
 		DA7A847A2C7D38E700EA068A /* MealImageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA7A84792C7D38E700EA068A /* MealImageViewModel.swift */; };
+		DA7AF3732C853DF1000FC3D6 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = DA7AF3722C853DF1000FC3D6 /* Localizable.xcstrings */; };
 		DA9FB4EF2C753D61005DF2FF /* TastyMealsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA9FB4EE2C753D61005DF2FF /* TastyMealsApp.swift */; };
 		DA9FB4F32C753D62005DF2FF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DA9FB4F22C753D62005DF2FF /* Assets.xcassets */; };
 		DAA32EE52C80D339003C1A68 /* MealListNavigationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA32EE42C80D339003C1A68 /* MealListNavigationView.swift */; };
@@ -57,6 +59,7 @@
 /* Begin PBXFileReference section */
 		DA0922FE2C812A1800EEC5D9 /* MealListRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListRepositoryTests.swift; sourceTree = "<group>"; };
 		DA0923002C812A3C00EEC5D9 /* MealDetailRepositoryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailRepositoryTests.swift; sourceTree = "<group>"; };
+		DA09AEB32C86361C0009A08D /* InfoPlist.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = InfoPlist.xcstrings; sourceTree = "<group>"; };
 		DA1B0B1A2C79299A00B9F5EE /* TastyMealsError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyMealsError.swift; sourceTree = "<group>"; };
 		DA281A4A2C77A37D00A5DED6 /* MealDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealDetailView.swift; sourceTree = "<group>"; };
 		DA309C252C7FE6B100D795D7 /* MealListViewModelTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListViewModelTests.swift; sourceTree = "<group>"; };
@@ -85,6 +88,7 @@
 		DA75EA9B2C7BB458008FD877 /* MealListDetailPlaceholderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealListDetailPlaceholderView.swift; sourceTree = "<group>"; };
 		DA7A84772C7D37E500EA068A /* MealImageContainerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealImageContainerView.swift; sourceTree = "<group>"; };
 		DA7A84792C7D38E700EA068A /* MealImageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MealImageViewModel.swift; sourceTree = "<group>"; };
+		DA7AF3722C853DF1000FC3D6 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		DA9FB4EB2C753D61005DF2FF /* TastyMeals.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TastyMeals.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA9FB4EE2C753D61005DF2FF /* TastyMealsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TastyMealsApp.swift; sourceTree = "<group>"; };
 		DA9FB4F22C753D62005DF2FF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -264,6 +268,8 @@
 				DA4CD5022C7F94AD0034691C /* MealData */,
 				DAC078E82C7B949F0005D511 /* Info.plist */,
 				DA9FB4F22C753D62005DF2FF /* Assets.xcassets */,
+				DA09AEB32C86361C0009A08D /* InfoPlist.xcstrings */,
+				DA7AF3722C853DF1000FC3D6 /* Localizable.xcstrings */,
 			);
 			path = TastyMeals;
 			sourceTree = "<group>";
@@ -367,6 +373,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DA09AEB42C86361C0009A08D /* InfoPlist.xcstrings in Resources */,
+				DA7AF3732C853DF1000FC3D6 /* Localizable.xcstrings in Resources */,
 				DA9FB4F32C753D62005DF2FF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

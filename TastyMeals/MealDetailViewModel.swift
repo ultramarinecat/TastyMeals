@@ -44,7 +44,10 @@ final class MealDetailViewModel {
             }
 
             logger.warning("Failed to fetch meal details: \(error.localizedDescription)")
-            errorMessage = "Could not load your dessert 😿. Please try again later 🍰"
+            errorMessage = String(
+                localized: "Could not load your dessert 😿. Please try again later 🍰",
+                comment: "Meal details error message."
+            )
         }
     }
 

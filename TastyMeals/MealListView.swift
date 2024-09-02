@@ -20,22 +20,25 @@ struct MealListView: View {
             if let errorMessage = viewModel.errorMessage {
                 VStack {
                     Text(errorMessage)
-                        .accessibilityLabel("Error message: \(errorMessage)")
+                        .accessibilityLabel(
+                            // swiftlint:disable:next line_length
+                            Text("Error message: \(errorMessage)", comment: "Accessibility label for a meal error message. Variable is the error message.")
+                        )
                         .padding(.horizontal, MealListView.errorMessageHorizontalPadding)
-                    Button("Refresh") {
+                    Button(String(localized: "Refresh", comment: "Refresh meal list button label.")) {
                         Task {
                             await viewModel.handleRefreshButtonTap()
                         }
                     }
                     .buttonStyle(.bordered)
-                    .accessibilityLabel("Refresh meals")
+                    .accessibilityLabel(Text("Refresh meals", comment: "Accessibility label for the refresh meal list button."))
                     .padding(.top, MealListView.refreshButtonTopPadding)
                 }
             } else if let meals = viewModel.meals {
                 MealListNavigationView(meals: meals)
             } else {
                 LoadingView()
-                    .accessibilityLabel("Loading meals")
+                    .accessibilityLabel(Text("Loading meals", comment: "Accessibility label for the loading meal list progress indicator."))
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)

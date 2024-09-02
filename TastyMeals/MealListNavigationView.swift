@@ -22,7 +22,7 @@ struct MealListNavigationView: View {
                     MealListCellView(meal: meal)
                 }
             }
-            .navigationTitle("Desserts")
+            .navigationTitle(Text("Desserts", comment: "Meal list navigation title."))
         } detail: {
             MealListDetailPlaceholderView()
         }

@@ -15,7 +15,7 @@ struct MealInstructionsView: View {
     /// The content and behavior of the view.
     var body: some View {
         VStack {
-            Text("Instructions")
+            Text("Instructions", comment: "Meal instructions section title.")
                 .accessibilityAddTraits(.isHeader)
                 .accessibilityHeading(.h2)
                 .font(.title)
@@ -23,7 +23,10 @@ struct MealInstructionsView: View {
                 .padding(.bottom, MealInstructionsView.headingButtonPadding)
 
             Text(instructions)
-                .accessibilityLabel("Instructions: \(instructions)")
+                .accessibilityLabel(
+                    // swiftlint:disable:next line_length
+                    Text("Instructions: \(instructions)", comment: "Accessibility label for the meal instructions. Variable is the meal instructions.")
+                )
         }
     }
 }
