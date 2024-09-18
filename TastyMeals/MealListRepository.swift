@@ -13,7 +13,7 @@ private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: 
 struct MealListRepository: MealListRepositoryProtocol {
     private let dataRepository: MealDataRepository
 
-    /// Creates a `MealListRepository` with the given `datarRepository` to use for fetching meal data.
+    /// Creates a `MealListRepository` with the given `dataRepository` to use for fetching meal data.
     /// - Parameter dataRepository: Repository used to fetch meal data, `MealDBDataRepository` by default.
     init(dataRepository: MealDataRepository = MealDBDataRepository()) {
         self.dataRepository = dataRepository

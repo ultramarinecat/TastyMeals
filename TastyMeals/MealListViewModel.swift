@@ -21,7 +21,7 @@ final class MealListViewModel {
     @ObservationIgnored private let repository: MealListRepositoryProtocol
 
     /// Creates a `MealListViewModel` with the given `repository` to use for fetching meals.
-    /// - Parameter repository: Repository used to fetch meals, `MealListMealDBRepository` by default.
+    /// - Parameter repository: Repository used to fetch meals, `MealListRepository` by default.
     init(repository: MealListRepositoryProtocol = MealListRepository()) {
         self.repository = repository
     }

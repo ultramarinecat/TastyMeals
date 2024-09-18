@@ -21,7 +21,7 @@ final class MealDetailViewModel {
     @ObservationIgnored private let repository: MealDetailRepositoryProtocol
 
     /// Creates a `MealDetailViewModel` with the given `repository` to use for fetching meal details.
-    /// - Parameter repository: Repository used to fetch meal details, `MealDetailMealDBRepository` by default.
+    /// - Parameter repository: Repository used to fetch meal details, `MealDetailRepository` by default.
     init(repository: MealDetailRepositoryProtocol = MealDetailRepository()) {
         self.repository = repository
     }
