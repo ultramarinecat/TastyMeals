@@ -31,6 +31,7 @@ final class MealIngredientsViewModelTests: XCTestCase {
         XCTAssertEqual(sutIngredient1.measurement, measurement1)
 
         let sutIngredient2 = sutIngredients[1]
+        XCTAssertEqual(sutIngredient2.name, ingredient2)
         XCTAssertEqual(sutIngredient2.measurement, measurement2)
     }
 
