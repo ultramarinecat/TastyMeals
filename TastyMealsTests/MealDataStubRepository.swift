@@ -29,6 +29,7 @@ struct MealDataStubRepository: MealDataRepository {
     private let isOrderedByName: Bool
     private let isEmpty: Bool
 
+    private let unsuccessfulError = TastyMealsError.unsuccessful(statusCode: 500)
     private let emptyMealsData: Data = {
         Data(
             // swiftlint:disable indentation_width
@@ -39,10 +40,6 @@ struct MealDataStubRepository: MealDataRepository {
             """.utf8
             // swiftlint:enable indentation_width
         )
-    }()
-
-    private let unsuccessfulError: TastyMealsError = {
-        TastyMealsError.unsuccessful(statusCode: 500)
     }()
 
     /// Creates a stub `MealDataRepository` for fetching meal data.
