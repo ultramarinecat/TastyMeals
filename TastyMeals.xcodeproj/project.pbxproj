@@ -143,17 +143,6 @@
 			name = MealIngredients;
 			sourceTree = "<group>";
 		};
-		DA5AADD92C7BE6D800368DFE /* App */ = {
-			isa = PBXGroup;
-			children = (
-				DA9FB4EE2C753D61005DF2FF /* TastyMealsApp.swift */,
-				DA1B0B1A2C79299A00B9F5EE /* TastyMealsError.swift */,
-				DA7365982C75409C0067007E /* Meal.swift */,
-				DA75EA992C7BB3E3008FD877 /* LoadingView.swift */,
-			);
-			name = App;
-			sourceTree = "<group>";
-		};
 		DA5AADE02C7CE02C00368DFE /* MealImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -260,12 +249,15 @@
 		DA9FB4ED2C753D61005DF2FF /* TastyMeals */ = {
 			isa = PBXGroup;
 			children = (
-				DA5AADD92C7BE6D800368DFE /* App */,
 				DA5BFAED2C79055500153826 /* MealList */,
 				DA5BFAEE2C79056B00153826 /* MealDetail */,
 				DA5AADD82C7BE69D00368DFE /* MealIngredients */,
 				DA5AADE02C7CE02C00368DFE /* MealImage */,
 				DA4CD5022C7F94AD0034691C /* MealData */,
+				DA9FB4EE2C753D61005DF2FF /* TastyMealsApp.swift */,
+				DA1B0B1A2C79299A00B9F5EE /* TastyMealsError.swift */,
+				DA7365982C75409C0067007E /* Meal.swift */,
+				DA75EA992C7BB3E3008FD877 /* LoadingView.swift */,
 				DAC078E82C7B949F0005D511 /* Info.plist */,
 				DA9FB4F22C753D62005DF2FF /* Assets.xcassets */,
 				DA09AEB32C86361C0009A08D /* InfoPlist.xcstrings */,
