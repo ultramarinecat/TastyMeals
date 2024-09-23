@@ -7,13 +7,13 @@ import SwiftUI
 
 /// Meal detail view.
 struct MealDetailView: View {
-    private static let errorMessagePadding = 18.0
-    private static let imageViewTopPadding = 5.0
-    private static let ingredientsViewTopPadding = 16.0
-    private static let instructionsStackTopPadding = 12.0
-    private static let scrollViewStackHorizontalPadding = 20.0
-    private static let scrollViewStackBottomPadding = 6.0
-    private static let backgroundAccentColorOpacity = 0.2
+    private let errorMessagePadding = 18.0
+    private let imageViewTopPadding = 5.0
+    private let ingredientsViewTopPadding = 16.0
+    private let instructionsStackTopPadding = 12.0
+    private let scrollViewStackHorizontalPadding = 20.0
+    private let scrollViewStackBottomPadding = 6.0
+    private let backgroundAccentColorOpacity = 0.2
 
     /// The view model.
     let viewModel: MealDetailViewModel
@@ -27,7 +27,7 @@ struct MealDetailView: View {
                         // swiftlint:disable:next line_length
                         Text("Error message: \(errorMessage)", comment: "Accessibility label for a meal error message. Variable is the error message.")
                     )
-                    .padding(MealDetailView.errorMessagePadding)
+                    .padding(errorMessagePadding)
             } else if let meal = viewModel.meal {
                 ScrollView {
                     VStack {
@@ -42,18 +42,18 @@ struct MealDetailView: View {
                             .fontWeight(.semibold)
 
                         MealImageContainerView(meal: meal, isPreview: false)
-                            .padding(.top, MealDetailView.imageViewTopPadding)
+                            .padding(.top, imageViewTopPadding)
 
                         MealIngredientsContainerView(meal: meal)
-                            .padding(.top, MealDetailView.ingredientsViewTopPadding)
+                            .padding(.top, ingredientsViewTopPadding)
 
                         if let instructions = meal.instructions {
                             MealDetailInstructionsView(instructions: instructions)
-                                .padding(.top, MealDetailView.instructionsStackTopPadding)
+                                .padding(.top, instructionsStackTopPadding)
                         }
                     }
-                    .padding(.horizontal, MealDetailView.scrollViewStackHorizontalPadding)
-                    .padding(.bottom, MealDetailView.scrollViewStackBottomPadding)
+                    .padding(.horizontal, scrollViewStackHorizontalPadding)
+                    .padding(.bottom, scrollViewStackBottomPadding)
                 }
             } else {
                 LoadingView()
@@ -62,6 +62,6 @@ struct MealDetailView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.accentColor.opacity(MealDetailView.backgroundAccentColorOpacity))
+        .background(Color.accentColor.opacity(backgroundAccentColorOpacity))
     }
 }

@@ -11,13 +11,13 @@ private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: 
 
 /// Repository that fetches meal data from TheMealDB.
 struct MealDBDataRepository: MealDataRepository {
-    private static let mealsURLString = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
-    private static let mealURLFormatString = "https://themealdb.com/api/json/v1/1/lookup.php?i=%@"
+    private let mealsURLString = "https://themealdb.com/api/json/v1/1/filter.php?c=Dessert"
+    private let mealURLFormatString = "https://themealdb.com/api/json/v1/1/lookup.php?i=%@"
 
     /// Fetches the meals data.
     /// - Returns: The meals `Data.
     func fetchMealsData() async throws -> Data {
-        let url = try makeURL(for: MealDBDataRepository.mealsURLString)
+        let url = try makeURL(for: mealsURLString)
         return try await fetchData(for: url)
     }
 
@@ -25,7 +25,7 @@ struct MealDBDataRepository: MealDataRepository {
     /// - Parameter mealID: The id of the `Meal` for which to fetch data.
     /// - Returns: The `Data` for the given `mealID`.
     func fetchMealData(for mealID: String) async throws -> Data {
-        let urlString = String(format: MealDBDataRepository.mealURLFormatString, mealID)
+        let urlString = String(format: mealURLFormatString, mealID)
         let url = try makeURL(for: urlString)
         return try await fetchData(for: url)
     }

@@ -7,7 +7,7 @@ import SwiftUI
 
 /// Meal ingredients view.
 struct MealIngredientsView: View {
-    private static let headingBottomPadding = 5.0
+    private let headingBottomPadding = 5.0
 
     /// The view model.
     let viewModel: MealIngredientsViewModel
@@ -22,7 +22,7 @@ struct MealIngredientsView: View {
                         .accessibilityHeading(.h2)
                         .font(.title)
                         .fontWeight(.medium)
-                        .padding(.bottom, MealIngredientsView.headingBottomPadding)
+                        .padding(.bottom, headingBottomPadding)
 
                     VStack(alignment: .leading) {
                         ForEach(ingredients) { ingredient in

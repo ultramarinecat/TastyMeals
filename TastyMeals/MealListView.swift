@@ -7,9 +7,9 @@ import SwiftUI
 
 /// Meal list view.
 struct MealListView: View {
-    private static let errorMessageHorizontalPadding = 20.0
-    private static let refreshButtonTopPadding = 8.0
-    private static let backgroundAccentColorOpacity = 0.2
+    private let errorMessageHorizontalPadding = 20.0
+    private let refreshButtonTopPadding = 8.0
+    private let backgroundAccentColorOpacity = 0.2
 
     /// The view model.
     let viewModel: MealListViewModel
@@ -24,7 +24,7 @@ struct MealListView: View {
                             // swiftlint:disable:next line_length
                             Text("Error message: \(errorMessage)", comment: "Accessibility label for a meal error message. Variable is the error message.")
                         )
-                        .padding(.horizontal, MealListView.errorMessageHorizontalPadding)
+                        .padding(.horizontal, errorMessageHorizontalPadding)
                     Button(String(localized: "Refresh", comment: "Refresh meal list button label.")) {
                         Task {
                             await viewModel.handleRefreshButtonTap()
@@ -32,7 +32,7 @@ struct MealListView: View {
                     }
                     .buttonStyle(.bordered)
                     .accessibilityLabel(Text("Refresh meals", comment: "Accessibility label for the refresh meal list button."))
-                    .padding(.top, MealListView.refreshButtonTopPadding)
+                    .padding(.top, refreshButtonTopPadding)
                 }
             } else if let meals = viewModel.meals {
                 MealListNavigationView(meals: meals)
@@ -42,6 +42,6 @@ struct MealListView: View {
             }
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity)
-        .background(Color.accentColor.opacity(MealListView.backgroundAccentColorOpacity))
+        .background(Color.accentColor.opacity(backgroundAccentColorOpacity))
     }
 }

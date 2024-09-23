@@ -7,12 +7,12 @@ import SwiftUI
 
 /// Meal image view.
 struct MealImageView: View {
-    private static let imageWidth = 300.0
-    private static let imageHeight = 300.0
-    private static let imagePreviewWidth = 50.0
-    private static let imagePreviewHeight = 50.0
-    private static let imageCornerRadius = 8.0
-    private static let loadFailureSystemSymbolImageName = "photo"
+    private let imageWidth = 300.0
+    private let imageHeight = 300.0
+    private let imagePreviewWidth = 50.0
+    private let imagePreviewHeight = 50.0
+    private let imageCornerRadius = 8.0
+    private let loadFailureSystemSymbolImageName = "photo"
 
     @MainActor private var imageAccessibilityLabel: String? {
         guard let imageDescription = viewModel.imageDescription else {
@@ -36,7 +36,7 @@ struct MealImageView: View {
                     .accessibilityAddTraits(.isImage)
                     .accessibilityLabel(imageAccessibilityLabel ?? "")
             } else if phase.error != nil {
-                Image(systemName: MealImageView.loadFailureSystemSymbolImageName)
+                Image(systemName: loadFailureSystemSymbolImageName)
                     .font(.largeTitle)
                     .foregroundStyle(.secondary)
                     .accessibilityLabel(
@@ -50,9 +50,9 @@ struct MealImageView: View {
             }
         }
         .frame(
-            width: isPreview ? MealImageView.imagePreviewWidth : MealImageView.imageWidth,
-            height: isPreview ? MealImageView.imagePreviewHeight : MealImageView.imageHeight
+            width: isPreview ? imagePreviewWidth : imageWidth,
+            height: isPreview ? imagePreviewHeight : imageHeight
         )
-        .cornerRadius(MealImageView.imageCornerRadius)
+        .cornerRadius(imageCornerRadius)
     }
 }
