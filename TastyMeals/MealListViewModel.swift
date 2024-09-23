@@ -27,7 +27,6 @@ final class MealListViewModel {
     }
 
     /// Handles tasks that need to be performed before view appears. Updates the list of meals, sorts the meals alphabetically.
-    @MainActor
     func handleViewWillAppear() async {
         await updateMeals()
     }
