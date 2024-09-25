@@ -11,12 +11,13 @@ private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: 
 
 /// Meal list view model.
 @Observable
+@MainActor
 final class MealListViewModel {
     /// Array of `Meal`s.
-    @MainActor private(set) var meals: [Meal]?
+    private(set) var meals: [Meal]?
 
     /// Error message to display.
-    @MainActor private(set) var errorMessage: String?
+    private(set) var errorMessage: String?
 
     @ObservationIgnored private let repository: MealListRepositoryProtocol
 
@@ -32,13 +33,11 @@ final class MealListViewModel {
     }
 
     /// Handles refresh button tap. Updates the list of meals, sorts the meals alphabetically.
-    @MainActor
     func handleRefreshButtonTap() async {
         errorMessage = nil
         await updateMeals()
     }
 
-    @MainActor
     private func updateMeals() async {
         do {
             let meals = try await repository.fetchMeals()

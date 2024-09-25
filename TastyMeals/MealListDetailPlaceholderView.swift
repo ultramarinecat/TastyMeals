@@ -6,6 +6,7 @@
 import SwiftUI
 
 /// Meal list detail placeholder view.
+@MainActor
 struct MealListDetailPlaceholderView: View {
     private let backgroundAccentColorOpacity = 0.2
 

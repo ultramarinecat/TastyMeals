@@ -6,6 +6,7 @@
 import SwiftUI
 
 /// Meal list cell view.
+@MainActor
 struct MealListCellView: View {
     /// The meal to display.
     let meal: Meal

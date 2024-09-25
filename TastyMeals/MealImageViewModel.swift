@@ -11,12 +11,13 @@ private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: 
 
 /// Meal image view model.
 @Observable
+@MainActor
 final class MealImageViewModel {
     /// Image data `URL`
-    @MainActor private(set) var imageDataURL: URL?
+    private(set) var imageDataURL: URL?
 
     /// Image description.
-    @MainActor private(set) var imageDescription: String?
+    private(set) var imageDescription: String?
 
     @ObservationIgnored private let dataRepository: MealDataRepository
 
@@ -29,7 +30,6 @@ final class MealImageViewModel {
     /// Handles tasks that need to be performed before view appears. Updates image data url for the given `meal`.
     /// - Parameter meal: The `Meal` for which to display the image.
     /// - Parameter isPreview: Boolean value indicating whether the image is a preview.
-    @MainActor
     func handleViewWillAppear(with meal: Meal, isPreview: Bool) async {
         do {
             let imageURLString = isPreview ? meal.imagePreviewURLString : meal.imageURLString

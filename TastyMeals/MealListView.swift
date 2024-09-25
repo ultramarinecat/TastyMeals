@@ -6,6 +6,7 @@
 import SwiftUI
 
 /// Meal list view.
+@MainActor
 struct MealListView: View {
     private let errorMessageHorizontalPadding = 20.0
     private let refreshButtonTopPadding = 8.0

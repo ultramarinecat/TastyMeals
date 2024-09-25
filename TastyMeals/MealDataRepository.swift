@@ -6,7 +6,7 @@
 import Foundation
 
 /// Repository for fetching meal data.
-protocol MealDataRepository {
+protocol MealDataRepository: Sendable {
     /// Fetches the meals data.
     /// - Returns: The meals `Data`.
     func fetchMealsData() async throws -> Data

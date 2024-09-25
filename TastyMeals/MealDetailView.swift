@@ -6,6 +6,7 @@
 import SwiftUI
 
 /// Meal detail view.
+@MainActor
 struct MealDetailView: View {
     private let errorMessagePadding = 18.0
     private let imageViewTopPadding = 5.0

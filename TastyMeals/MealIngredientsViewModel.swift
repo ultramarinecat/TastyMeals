@@ -7,13 +7,13 @@ import Foundation
 
 /// Meal ingredients view model.
 @Observable
+@MainActor
 final class MealIngredientsViewModel {
     /// Array of `Ingredient`s.
-    @MainActor private(set) var ingredients: [MealIngredient]?
+    private(set) var ingredients: [MealIngredient]?
 
     /// Handles tasks that need to be performed before view appears, creates the ingredients list for the given `meal`.
     /// - Parameter meal: The `Meal` for which to display ingredients.
-    @MainActor
     func handleViewWillAppear(with meal: Meal) {
         ingredients = makeIngredients(for: meal)
     }

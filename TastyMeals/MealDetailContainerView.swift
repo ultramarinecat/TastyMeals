@@ -6,6 +6,7 @@
 import SwiftUI
 
 /// Meal detail container view.
+@MainActor
 struct MealDetailContainerView: View {
     @State private var viewModel = MealDetailViewModel()
 

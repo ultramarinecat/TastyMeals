@@ -11,12 +11,13 @@ private let logger = Logger(subsystem: Bundle.main.bundleIdentifier!, category: 
 
 /// Meal detail view model.
 @Observable
+@MainActor
 final class MealDetailViewModel {
     /// `Meal` for which to display details.
-    @MainActor private(set) var meal: Meal?
+    private(set) var meal: Meal?
 
     /// Error message to display.
-    @MainActor private(set) var errorMessage: String?
+    private(set) var errorMessage: String?
 
     @ObservationIgnored private let repository: MealDetailRepositoryProtocol
 
@@ -28,7 +29,6 @@ final class MealDetailViewModel {
 
     /// Handles tasks that need to be performed before view appears. Updates details for the given `meal`.
     /// - Parameter mealID: The id of the `Meal` for which to display details.
-    @MainActor
     func handleViewWillAppear(for mealID: String) async {
         do {
             clearPreviousMeal()
@@ -51,7 +51,6 @@ final class MealDetailViewModel {
         }
     }
 
-    @MainActor
     private func clearPreviousMeal() {
         guard meal != nil else {
             return
@@ -59,7 +58,6 @@ final class MealDetailViewModel {
         meal = nil
     }
 
-    @MainActor
     private func clearErrorMessage() {
         guard errorMessage != nil else {
             return

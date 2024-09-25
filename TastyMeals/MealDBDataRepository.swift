@@ -81,3 +81,6 @@ struct MealDBDataRepository: MealDataRepository {
         return url
     }
 }
+
+// Logger was confirmed by Apple to be sendable
+extension Logger: @unchecked Sendable {}

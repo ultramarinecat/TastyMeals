@@ -6,6 +6,7 @@
 import SwiftUI
 
 /// Meal list navigation view.
+@MainActor
 struct MealListNavigationView: View {
     @State private var columnVisibility = NavigationSplitViewVisibility.doubleColumn
 

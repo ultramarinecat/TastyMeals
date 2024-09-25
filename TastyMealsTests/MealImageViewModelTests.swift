@@ -48,6 +48,7 @@ final class MealImageViewModelTests: XCTestCase {
         XCTAssertEqual(sut.imageDescription, meal.name)
     }
 
+    @MainActor
     private func makeSUT(dataRepository: MealDataRepository = MealDataStubRepository()) -> MealImageViewModel {
         MealImageViewModel(dataRepository: dataRepository)
     }

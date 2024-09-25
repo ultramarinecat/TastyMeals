@@ -6,6 +6,7 @@
 import SwiftUI
 
 /// Meal image view.
+@MainActor
 struct MealImageView: View {
     private let imageWidth = 300.0
     private let imageHeight = 300.0
@@ -14,7 +15,7 @@ struct MealImageView: View {
     private let imageCornerRadius = 8.0
     private let loadFailureSystemSymbolImageName = "photo"
 
-    @MainActor private var imageAccessibilityLabel: String? {
+    private var imageAccessibilityLabel: String? {
         guard let imageDescription = viewModel.imageDescription else {
             return nil
         }

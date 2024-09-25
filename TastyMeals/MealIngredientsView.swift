@@ -6,6 +6,7 @@
 import SwiftUI
 
 /// Meal ingredients view.
+@MainActor
 struct MealIngredientsView: View {
     private let headingBottomPadding = 5.0
 

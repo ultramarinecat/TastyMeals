@@ -4,7 +4,7 @@
 //
 
 /// Meal detail repository for fetching meal details.
-protocol MealDetailRepositoryProtocol {
+protocol MealDetailRepositoryProtocol: Sendable {
     /// Fetches the meal details for the given `mealID`.
     /// - Parameter mealID: The id of the `Meal` for which to fetch details.
     /// - Returns: `Meal` populated with the meal details.
